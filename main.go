@@ -62,7 +62,7 @@ func main() {
 
 			log.Printf("Received a message: %s", d.Body)
 			err := json.Unmarshal(d.Body,u)
-			er := mongoController.SetCollection(context.Background(), "quiz", "userinfo")
+			er := mongoController.SetCollection(context.Background(), "", "")
 			failOnError(er,"SetCollectionError")
 			mongoController.Put(context.Background(),*u)
 			failOnError(err,"unmarshal failed")
